@@ -22,13 +22,11 @@ function MealsOverviewScreen({route , navigation}) {
 
 
     function renderMealItem(itemData){
-        function selectMealItemHandler(){ 
-            console.log('Karta tıklandı!');
-            navigation.navigate('MealDetail')
-        }
+
         const item = itemData.item;
 
         const mealItemProps = {
+            id: item.id,
             title: item.title,
             imageUrl: item.imageUrl,
             duration: item.duration,
@@ -36,7 +34,7 @@ function MealsOverviewScreen({route , navigation}) {
             affordability: item.affordability.toUpperCase(),
         };
 
-        return <MealItem {...mealItemProps} onPress={selectMealItemHandler} />;
+        return <MealItem {...mealItemProps}/>;
     }  
 
   return (
