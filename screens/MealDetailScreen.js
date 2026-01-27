@@ -24,18 +24,14 @@ function MealDetailScreen({route,navigation}) {
       favoriteMealsCtx.addFavorite(mealId);
     }
   }
-
-  function headerButtonPressHandler() {
-    console.log('Pressed!');
-  }
   
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton onPress={headerButtonPressHandler} icon={mealIsFavorite ? 'star' : 'star-outline'} color="white"/>;
+        return <IconButton onPress={changeFavoriteStatusHandler} icon={mealIsFavorite ? 'star' : 'star-outline'} color="white"/>;
       },
     });
-  },[navigation,headerButtonPressHandler])
+  },[navigation,changeFavoriteStatusHandler])
   
   return (
         <ScrollView style={styles.rootContainer}>
