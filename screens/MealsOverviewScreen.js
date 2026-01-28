@@ -1,7 +1,6 @@
 import {useLayoutEffect } from 'react';
-import MealItem from '../components/MealItem';
 import { MEALS , CATEGORIES } from '../data/dummy-data';
-import { View, FlatList } from 'react-native';
+import MealsList from '../components/MealsList/MealsList';
 
 function MealsOverviewScreen({route , navigation}) {
     //const route = useRoute(); // Alternatif yöntem kullanımı prop olarak route almak yerine useRoute hookunu kullanmak.
@@ -19,31 +18,6 @@ function MealsOverviewScreen({route , navigation}) {
     }, [catId, navigation]);
 
     
-
-
-    function renderMealItem(itemData){
-
-        const item = itemData.item;
-
-        const mealItemProps = {
-            id: item.id,
-            title: item.title,
-            imageUrl: item.imageUrl,
-            duration: item.duration,
-            complexity: item.complexity.toUpperCase(),
-            affordability: item.affordability.toUpperCase(),
-        };
-
-        return <MealItem {...mealItemProps}/>;
-    }  
-
-  return (
-    <View>
-        <FlatList   
-        data={displayedMeals} 
-        keyExtractor={(item) => item.id}
-        renderItem={renderMealItem} />
-    </View>    
-  );
+    return <MealsList items={displayedMeals}/>;
 }   
 export default MealsOverviewScreen;

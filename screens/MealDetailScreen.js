@@ -4,7 +4,7 @@ import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
-import {useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
 import IconButton from "../components/MealDetail/IconButton";
 import { FavoritesContext } from "../store/context/favorites-context";
 
